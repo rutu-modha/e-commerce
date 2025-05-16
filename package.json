@@ -2,9 +2,9 @@
     "name": "e-commerce",
     "version": "1.0.0",
     "scripts": {
-        "start": "concurrently \"npm run backend\" \"npm run client\"",
-        "backend": "cd backend && npm backend",
-        "frontend": "cd frontend && npm start"
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "cd backend && npm run start",
+        "client": "cd frontend && npm run start"
     },
     "author": "Hrutav Modha",
     "description": "An ECommerce Website made using MERN stack",

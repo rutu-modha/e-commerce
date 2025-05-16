@@ -1,3 +1,17 @@
+import "./App.css"
+import { Link, Route, Routes } from "react-router"
+import Register from "./Components/SignUp"
 export default function App(){
-    return <h1>Hello World</h1>
+    return (
+        <div>
+            <div name="navbar">
+                <Link to="/auth">
+                    <button>Sign Up</button>
+                </Link>
+            </div>
+            <Routes>
+                <Route path="/auth" element={<Register/>}/>
+            </Routes>
+        </div>
+    )
 }

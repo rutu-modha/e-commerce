@@ -2,7 +2,7 @@
     "name": "backend",
     "version": "1.0.0",
     "scripts": {
-        "backend": "nodemon server.js"
+        "start": "nodemon server.js"
     },
     "author": "Hrutav Modha",
     "dependencies": {
