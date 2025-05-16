@@ -4,7 +4,7 @@ import Register from "./Components/SignUp"
 export default function App(){
     return (
         <div>
-            <div name="navbar">
+            <div className="navbar">
                 <Link to="/auth">
                     <button>Sign Up</button>
                 </Link>

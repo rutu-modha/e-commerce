@@ -4,8 +4,37 @@ export default function Register(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [user, setUser] = useState("")
+    const verify = async () => {
+        if(name==="" || email==="" || password==="" || user === "")
+            alert("Please fill up the details properly")
+        else if (!email.includes("@") || !email.includes(".com"))
+            alert("Please enter a valid email")
+        else if (password.length < 8)
+            alert("Please enter a strong password")
+        else {
+            await fetch("http://localhost:5000/signup", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    user: user,
+                    password: password
+                })
+            }).then((res)=>{
+                return res.json()
+            }).then((data)=>{
+                alert(data)
+            }).catch((err)=>{
+                alert("An error occured while signing you up")
+                console.log(err)
+            })
+        }
+    }
     return (
-        <div>
+        <div className="body">
             <h1>Sign Up</h1>
             <input type="text" value={name} placeholder="Enter your name" onChange={(e)=>setName(e.target.value)}/>
             <br/><br/>
@@ -20,7 +49,7 @@ export default function Register(){
                 <option>Retailer</option>
             </select>
             <br/><br/>
-            <button>Sign Up</button>
+            <button  className="bodyBtn" onClick={verify}>Sign Up</button>
         </div>
     )
 }

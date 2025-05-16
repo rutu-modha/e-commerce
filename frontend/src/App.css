@@ -1,13 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+}
 body {
-    margin: 10px;
-    padding: 10px;
     font-family: "Roboto";
     background-color: white;
     color: #333;
 }
+h1 {
+    margin: 10px;
+}
+.body {
+    margin-top: 10px;
+}
 input, select {
+    margin-top: 10px;
     padding: 4px;
     border: solid 1px black;
     border-radius: 10px;
     width: 255px;
+}
+.navbar {
+    padding: 0;
+    margin: 0;
+    height: 60px;
+    width: 100vw;
+    background: black;
+    color: white;
+}
+button {
+    margin-top: 20px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.bodyBtn {
+    padding: 5px;
+    width: 100px;
+    border-radius: 5px;
+    background: #000;
+    color: white;
 }
