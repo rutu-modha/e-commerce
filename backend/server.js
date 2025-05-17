@@ -4,7 +4,7 @@ const auth = require("./handlers/auth")
 const connect = require("./connect")
 const app = express()
 app.use(cors())
-connect("ecommerce")
+const connect = connect("ecommerce")
 app.post("/signup", (req, res) => {
     auth(req, res)
 })
