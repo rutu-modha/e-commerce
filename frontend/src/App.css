@@ -67,3 +67,13 @@ button {
         opacity: 1;
     }
 }
+.alertBtn {
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    padding: 5px;
+    width: 90px;
+    text-align: center;
+    cursor: pointer;
+}

@@ -1,8 +1,9 @@
-export default function Alert({ message }){
+export default function Alert({ heading, message }){
     return (
         <div className="alert">
-            <h2 style={{color: "white"}}>Alert</h2>
+            <h1 style={{color: "white"}}>{heading}</h1>
             <p style={{color: "white"}}>{message}</p>
+            <button className="alertBtn" onClick={() => window.location.reload()}>OK</button>
         </div>
     )
 }
