@@ -1,5 +1,5 @@
 const mongodb = require("mongoose")
-usersSchema = new mongodb.Schema({
+userSchema = new mongodb.Schema({
     name: String,
     email: String,
     user: String,
