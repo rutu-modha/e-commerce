@@ -1,16 +1,18 @@
 import { useState } from "react"
+import Alert from "../CPopUps/Alert"
 export default function Register(){
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [user, setUser] = useState("")
+    const [alertState, setAlertState] = useState("")
     const verify = async () => {
         if(name==="" || email==="" || password==="" || user === "")
-            alert("Please fill up the details properly")
+            setAlertState("Please fill up the details properly")
         else if (!email.includes("@") || !email.includes(".com"))
-            alert("Please enter a valid email")
+            setAlertState("Please enter a valid email")
         else if (password.length < 8)
-            alert("Please enter a strong password")
+            setAlertState("Please enter a strong password")
         else {
             await fetch("http://localhost:5000/signup", {
                 method: "POST",
@@ -25,10 +27,10 @@ export default function Register(){
                 })
             }).then((res)=>{
                 return res.json()
-            }).then((data)=>{
-                alert(data)
+            }).then((data) => {
+                setAlertState(data.message)
             }).catch((err)=>{
-                alert("An error occured while signing you up")
+                setAlertState("An error occured while signing you up. Please try again later.")
                 console.log(err)
             })
         }
@@ -50,6 +52,7 @@ export default function Register(){
             </select>
             <br/><br/>
             <button  className="bodyBtn" onClick={verify}>Sign Up</button>
+            {alertState !== "" ? <Alert message={alertState}/> : null}
         </div>
     )
 }
