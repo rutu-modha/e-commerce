@@ -1,10 +1,10 @@
 const users = require("../schemas/users")
 module.exports = auth = async (req, res) => {
-    const { name, email, user, password } = req.body
+    const { name, email, role, password } = req.body
     const User = new users({
         name: name,
         email: email,
-        user: user,
+        role: role,
         password: password
     })
     const find = await users.findOne({ email: email })
