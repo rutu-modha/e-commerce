@@ -28,7 +28,7 @@ export default function Register() {
             }).then((res) => {
                 return res.json()
             }).then((data) => {
-                setAlertState(["Success", "You have signed up successfully"])
+                setAlertState(["Success", data.message])
                 localStorage.setItem("token", data.token)
             }).catch((err) => {
                 setAlertState(["Error", "An error occured while signing you up. Please try again later."])
