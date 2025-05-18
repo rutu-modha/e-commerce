@@ -20,7 +20,7 @@ app.post("/signup", (req, res) => {
     res.json({ token })
 })
 app.post("/login", async (req, res) => {
-    const token = req.header["authorization"].split(" ")[1]
+    const token = req.headers["authorization"].split(" ")[1]
     try {
         const decode = verifyToken(token)
         res.send(["Success", "You have logged in successfully"])
