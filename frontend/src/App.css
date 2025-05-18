@@ -30,6 +30,8 @@ input, select {
     width: 100%;
     background: black;
     color: white;
+    display: flex;
+    justify-content: space-around;
 }
 button {
     margin-top: 20px;
