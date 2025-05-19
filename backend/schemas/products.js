@@ -1,0 +1,20 @@
+const mongodb = require("mongoose")
+const productSchema = new mongodb.Schema({
+    product: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String,
+        required: true
+    }
+})
+module.exports = mongodb.model("products", productSchema)

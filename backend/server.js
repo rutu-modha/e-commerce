@@ -20,12 +20,10 @@ app.post("/signup", (req, res) => {
     const token = generateToken(req.body)
     res.json({ token })
 })
-app.post("/login", (req, res) => {
-    const token = req.headers["authorization"].split(" ")[1]
+app.post("/login", verifyToken,(req, res) => {
     try {
-        const decode = verifyToken(token)
         const resArray = login(req, res)
-        if (!decode) {
+        if (!req.user) {
             res.status(401).json(["Error", "Invalid token"])
         }
         if (resArray[1] === false) {
@@ -40,7 +38,8 @@ app.post("/login", (req, res) => {
         console.log(err)
     }
 })
-app.post("/products", checkRole("Retailer"),verifyToken, (req, res) => {
+app.post("/products", verifyToken, checkRole("Retailer"), (req, res) => {
+    //Logic to be added soon
 })
 app.listen(5000, () => {
     console.log("Server is running at http://localhost:5000")

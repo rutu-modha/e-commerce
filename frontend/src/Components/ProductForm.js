@@ -1,11 +1,11 @@
 import { useState } from "react"
 import Alert from "../CPopUps/Alert"
 export default function ProductForm(){
-    const [ name, setName] = useState("")
-    const [ price, setPrice] = useState("")
-    const [ description, setDescription] = useState("")
-    const [ image, setImage] = useState(null)
-    const [ alertState, setAlertState] = useState([])
+    const [name, setName] = useState("")
+    const [price, setPrice] = useState("")
+    const [description, setDescription] = useState("")
+    const [image, setImage] = useState(null)
+    const [alertState, setAlertState] = useState([])
     const formData = new FormData()
     formData.append("product", name)
     formData.append("price", price)
