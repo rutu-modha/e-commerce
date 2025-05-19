@@ -7,7 +7,7 @@ export default function ProductForm(){
     const [image, setImage] = useState(null)
     const [alertState, setAlertState] = useState([])
     const formData = new FormData()
-    formData.append("product", name)
+    formData.append("name", name)
     formData.append("price", price)
     formData.append("description", description)
     formData.append("image", image)

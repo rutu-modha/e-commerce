@@ -4,6 +4,7 @@ import Register from "./Components/SignUp"
 import Authorize from "./Components/Login"
 import ProductForm from "./Components/ProductForm"
 import { jwtDecode } from "jwt-decode"
+import ProductList from "./Components/ProductList"
 export default function App(){
     const token = localStorage.getItem("token")
     let decode = {}
@@ -15,6 +16,9 @@ export default function App(){
     return (
         <div>
             <div className="navbar">
+                <Link to="/">
+                    <button>Home</button>
+                </Link>
                 <Link to="/auth">
                     <button>Sign Up</button>
                 </Link>
@@ -29,6 +33,7 @@ export default function App(){
                 <Route path="/auth" element={<Register/>}/>
                 <Route path="/verify" element={<Authorize/>}/>
                 <Route path="/products" element={<ProductForm/>}/>
+                <Route path="/" element={<ProductList/>}/>
             </Routes>
         </div>
     )

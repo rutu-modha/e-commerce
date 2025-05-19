@@ -79,3 +79,13 @@ button {
     text-align: center;
     cursor: pointer;
 }
+textarea {
+    margin: 5px;
+    padding: 5px;
+    border: solid 1px black;
+    border-radius: 10px;
+    width: 255px;
+    height: 100px;
+    font-family: "Roboto";
+    font-size: 14px;
+}
