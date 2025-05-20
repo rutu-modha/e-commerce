@@ -3,16 +3,10 @@ import { Link, Route, Routes } from "react-router"
 import Register from "./Components/SignUp"
 import Authorize from "./Components/Login"
 import ProductForm from "./Components/ProductForm"
-import { jwtDecode } from "jwt-decode"
 import ProductList from "./Components/ProductList"
+import Token from "./Token"
 export default function App(){
-    const token = localStorage.getItem("token")
-    let decode = {}
-    try {
-        decode = jwtDecode(token)
-    } catch (error) {
-        console.error("Failed to decode token:", error)
-    }
+    let decode = Token()
     return (
         <div>
             <div className="navbar">
@@ -26,7 +20,7 @@ export default function App(){
                     <button>Log In</button>
                 </Link>
                 <Link to="/products">
-                    {decode.role === "Retailer" ? <button>Add Product</button> : null}
+                    {decode.role === "Retailer" && <button>Add Product</button>}
                 </Link>
             </div>
             <Routes>

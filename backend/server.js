@@ -1,6 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const path = require("path")
+const rateLimit = require("express-rate-limit") 
 const { signup, login } = require("./handlers/auth")
 const connect = require("./connect")
 const { verifyToken } = require("./handlers/jwts")
@@ -19,6 +20,11 @@ connect("ecommerce")
 })
 .catch((err) => {
     console.log(err)
+})
+const limiter = rateLimit({
+    windowMs: 120 * 60 * 1000,
+    max: 10, 
+    message: "Too many requests from this IP, please try again later"
 })
 app.post("/signup", async (req, res) => {
     await signup(req, res)

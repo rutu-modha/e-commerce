@@ -1,17 +1,10 @@
-import { jwtDecode } from "jwt-decode"
+import Token from "../Token"
 import { useEffect, useState } from "react"
 export default function ProductList() {
     const [products, setProducts] = useState([])
-    const token = localStorage.getItem("token")
-    let user
-    try {
-        const decode = jwtDecode(token)
-        user = decode.name || "User"
-    } catch (error) {
-        console.log(error)
-    }
-    useEffect(async () => {
-        await fetch("http://localhost:5000/products", {
+    const token = Token()
+    useEffect(() => {
+        fetch("http://localhost:5000/products", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -26,15 +19,16 @@ export default function ProductList() {
     }, [])
     return (
         <div className="body">
-            <h1>Hi, {user}!</h1>
+            <h1>Hi, {token.name}!</h1>
             <h2>Here is the product listing from our side, which you might find interesting:</h2>
-            <div className="product-list">
+            <div className="plist">
                 {products.map((product) => (
-                    <div className="product-card">
-                        <img src={product.image} height={200} width={200} />
+                    <div className="pcard">
+                        <img src={product.image} className="pimg"/>
                         <h3>{product.name}</h3>
-                        <p>{product.description}</p>
-                        <p>Price: ${product.price}</p>
+                        <p>Price: ₹{product.price}</p>
+                        <button className="bodyBtn">Add to Cart</button>
+                        <button className="bodyBtn">Buy Now</button>
                     </div>
                 ))}
             </div>

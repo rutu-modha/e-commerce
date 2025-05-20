@@ -5,7 +5,12 @@
 body {
     font-family: "Roboto";
     background-color: white;
-    color: #333;
+    color: #000;
+    height: 100vh;
+    max-height: fit-content;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 h1 {
     margin: 10px;
@@ -42,6 +47,7 @@ button {
 }
 .bodyBtn {
     padding: 5px;
+    margin: 5px;
     width: 100px;
     border-radius: 5px;
     background: #000;
@@ -88,4 +94,37 @@ textarea {
     height: 100px;
     font-family: "Roboto";
     font-size: 14px;
+}
+.pimg {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    margin: 5px;
+    border: double 4px black;
+    background-color: white;
+}
+.plist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+.pcard{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+    height: fit-content;
+    width: 200px;
+    background: #fff;
+    box-shadow: 0 20px 30px #000;
+    transition: all 0.75s ease;
+}
+.pcard:hover {
+    background: linear-gradient(to bottom right, #fff, whitesmoke,#999);
+    box-shadow: 0 10px 20px #000;
+    transform: scale(1.025) translateY(-10px);
+    transition: all 0.75s ease;
 }

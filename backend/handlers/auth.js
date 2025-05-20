@@ -1,12 +1,19 @@
+const bcrypt = require("bcrypt")
 const users = require("../schemas/users")
 const { generateToken } = require("./jwts")
 const signup = async (req, res) => {
+    const salt = 10
     const { name, email, role, password } = req.body
+    try{
+        hashed = await bcrypt.hash(password, salt)
+    } catch (error) {
+        res.status(500).json({ message: "Error hashing password" })
+    }
     const User = new users({
         name: name,
         email: email,
         role: role,
-        password: password
+        password: hashed
     })
     const find = await users.findOne({ email: email })
     if (find) {
@@ -22,8 +29,9 @@ const signup = async (req, res) => {
 }
 const login = async (req, res) => {
     const { email, password } = req.body
-    const find = await users.findOne({ email: email, password: password })
-    if (find) {
+    const user = await users.findOne({ email: email })
+    const match = await bcrypt.compare(password, user.password)
+    if (match) {
         [res.status(200).json({ message: "You have logged in successfully" }), true]
     } else {
         [res.status(400).json({ message: "Invalid credentials" }), false]
