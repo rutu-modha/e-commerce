@@ -21,7 +21,7 @@ export default function App(){
                     <button>Log In</button>
                 </Link>
                 <Link to="/products">
-                    {decode.role === "Retailer" && <button>Add Product</button>}
+                    <button>Add Product</button>
                 </Link>
                 <Link to="/cart">
                     <button>Cart</button>

@@ -123,7 +123,7 @@ textarea {
     transition: all 0.75s ease;
 }
 .pcard:hover {
-    background: linear-gradient(to bottom right, #fff, whitesmoke,#999);
+    background: linear-gradient(to bottom right, #fff, whitesmoke, #999);
     box-shadow: 0 10px 20px #000;
     transform: scale(1.025) translateY(-10px);
     transition: all 0.75s ease;
@@ -135,7 +135,7 @@ textarea {
     flex-direction: column;
 }
 .icard:hover {
-    background: #f9f9f9;
+    background: rgb(200, 200, 200);
 }
 .icard {
     width: 100vw;

@@ -4,7 +4,6 @@ export default function Authorize(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [alertState, setAlertState] = useState([])
-    const token = localStorage.getItem("token")
     const verify = async () => {
         if (email === "" || password === "")
             setAlertState(["Error", "Please fill up the details properly"])
@@ -15,8 +14,8 @@ export default function Authorize(){
         else {
             await fetch("http://localhost:5000/login", {
                 method: "POST",
+                credentials: "include",
                 headers: {
-                    "Authorization": `Bearer ${token}`,
                     "Content-type": "application/json"
                 },
                 body: JSON.stringify({

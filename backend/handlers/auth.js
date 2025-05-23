@@ -16,18 +16,16 @@ const signup = async (req, res) => {
         password: hashed
     })
     const find = await users.findOne({ email: email })
-    if (find) {
+    if (find !== null) {
         res.status(400)
             .json({
                 message: `User with email ${email} already exists` 
             })
     } else {
         await User.save()
-        const token = generateToken(req.body)
         res.status(200)
             .json({
                 message: "You have signed up successfully", 
-                token: token 
             })
     }
 }
@@ -35,8 +33,13 @@ const login = async (req, res) => {
     const { email, password } = req.body
     const user = await users.findOne({ email: email })
     const match = await bcrypt.compare(password, user.password)
+    const token = generateToken(user)
     if (match) {
-        [res.status(200).json({ message: "You have logged in successfully" }), true]
+        [res.status(200).json({ message: "You have logged in successfully" })
+            .cookie("token", token, {
+                httpOnly: true,
+                maxAge: 3600000
+            }), true]
     } else {
         [res.status(400).json({ message: "Invalid credentials" }), false]
     }

@@ -29,7 +29,7 @@ export default function Register() {
                 return res.json()
             }).then((data) => {
                 setAlertState(["Success", "You have signed up successfully"])
-                localStorage.setItem("token", data.token)
+            
             }).catch((err) => {
                 setAlertState(["Error", "An error occured while signing you up. Please try again later."])
                 console.log(err)
@@ -52,7 +52,10 @@ export default function Register() {
                 <option>Retailer</option>
             </select>
             <br /><br />
-            <button className="bodyBtn" onClick={verify}>Sign Up</button>
+            <button className="bodyBtn" onClick={() => {
+                verify
+                window.location.href="http://localhost:3000/#/verify"
+            }}>Sign Up</button>
             {alertState.length !== 0 && <Alert heading={alertState[0]} message={alertState[1]} />}
         </div>
     )

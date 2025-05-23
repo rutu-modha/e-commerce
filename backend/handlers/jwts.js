@@ -3,13 +3,16 @@ require("dotenv").config()
 const generateToken = (user) => {
     const token = jwt.sign({ 
         name: user.name, 
-        role: user.role 
-    }, process.env.JWT_SECRET
-)
+        role: user.role,
+        id: user._id 
+    }, 
+    process.env.JWT_SECRET, {
+        expiresIn: "1h"
+    })
     return token
 }
 const verifyToken = (req, res, next) => {
-    const token = req.headers["authorization"]?.split(" ")[1]
+    const token = req.cookie.token 
     if (!token) {
         res.status(401).json(["Error", "No token provided"])
     }
