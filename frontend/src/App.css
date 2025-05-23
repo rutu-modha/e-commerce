@@ -128,3 +128,57 @@ textarea {
     transform: scale(1.025) translateY(-10px);
     transition: all 0.75s ease;
 }
+.clist {
+    left: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.icard:hover {
+    background: #f9f9f9;
+}
+.icard {
+    width: 100vw;
+    display: flex;
+    border-bottom: 2px solid black;
+    border-radius: 10px; 
+    padding: 5px 0 5px 0;
+    margin: 5px 0 5px 0;
+}
+.pinfo {
+    display: flex;
+    flex-direction: column;
+}
+.cimg {
+    width: 130px;
+    height: 80px;
+    border-radius: 5px;
+    margin: 5px;
+    border: double 4px black;
+}
+.a2cBtn {
+    right: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    transform: translateX(-20%);
+}
+.pinfo h3 {
+    left: 150px;
+    position: absolute;
+}
+.price {
+    left: 150px;
+    position: absolute;
+    margin-top: 20px;
+}
+.description {
+    left: 150px;
+    position: absolute;
+    margin-top: 40px;
+}

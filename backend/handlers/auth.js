@@ -17,14 +17,18 @@ const signup = async (req, res) => {
     })
     const find = await users.findOne({ email: email })
     if (find) {
-        return res.status(400).json({ message: `User with email ${email} already exists` })
+        res.status(400)
+            .json({
+                message: `User with email ${email} already exists` 
+            })
     } else {
         await User.save()
         const token = generateToken(req.body)
-        res.status(200).json({
-            message: "You have signed up successfully", 
-            token: token 
-        })
+        res.status(200)
+            .json({
+                message: "You have signed up successfully", 
+                token: token 
+            })
     }
 }
 const login = async (req, res) => {

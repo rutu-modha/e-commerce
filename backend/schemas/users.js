@@ -16,5 +16,5 @@ const userSchema = new mongodb.Schema({
         type: String,
         required: true
     }
-}
+})
 module.exports = mongodb.model("users", userSchema)

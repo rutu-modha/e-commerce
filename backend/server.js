@@ -9,6 +9,8 @@ const checkRole = require("./handlers/checkRole")
 const upload = require("./handlers/upload")
 const addProduct = require("./handlers/addProduct")
 const listProducts = require("./handlers/listProducts")
+const addToCart = require("./handlers/addToCart")
+const showCart = require("./handlers/showCart")
 const app = express()
 require("dotenv").config()
 app.use(cors())
@@ -37,6 +39,12 @@ app.post("/products", verifyToken, checkRole("Retailer"), upload.single("image")
 })
 app.get("/products", async (req, res) => {
     await listProducts(req, res)
+})
+app.post("/cart", verifyToken, async (req, res) => {
+    await addToCart(req, res)
+})
+app.get("/cart", async (req, res) => {
+    await showCart(req, res)
 })
 app.listen(5000, () => {
     console.log("Server is running at http://localhost:5000")

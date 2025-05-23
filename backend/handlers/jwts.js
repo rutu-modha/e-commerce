@@ -11,7 +11,7 @@ const generateToken = (user) => {
 const verifyToken = (req, res, next) => {
     const token = req.headers["authorization"]?.split(" ")[1]
     if (!token) {
-        return res.status(401).json(["Error", "No token provided"])
+        res.status(401).json(["Error", "No token provided"])
     }
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
@@ -19,7 +19,7 @@ const verifyToken = (req, res, next) => {
         next()
     } catch (error) {
         console.log(error)
-        return res.status(401).json(["Error", "Invalid token"])
+        res.status(401).json(["Error", "Invalid token"])
     }
 }
 module.exports = { generateToken, verifyToken }
