@@ -4,7 +4,7 @@ export default function Authorize(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [alertState, setAlertState] = useState([])
-    const verify = async () => {
+    const verify = () => {
         if (email === "" || password === "")
             setAlertState(["Error", "Please fill up the details properly"])
         else if (!email.includes("@") || !email.includes(".com"))
@@ -12,9 +12,8 @@ export default function Authorize(){
         else if (password.length < 8)
             setAlertState(["Error", "Please enter a strong password"])
         else {
-            await fetch("http://localhost:5000/login", {
+            fetch("http://localhost:5000/login", {
                 method: "POST",
-                credentials: "include",
                 headers: {
                     "Content-type": "application/json"
                 },
@@ -25,7 +24,7 @@ export default function Authorize(){
             }).then((res) => {
                 return res.json()
             }).then((data) => {
-                setAlertState([data[0], data[1]])
+                setAlertState(["Success", "You have logged in successfully"])
             }).catch((err) => {
                 setAlertState(["Error", "An error occured while logging you in. Please try again later."])
                 console.log(err)
@@ -40,7 +39,7 @@ export default function Authorize(){
             <input type="password" value={password} placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
             <br /><br />
             <button className="bodyBtn" onClick={verify}>Log In</button>
-            {alertState.length !== 0 && <Alert heading={alertState[0]} message={alertState[1]} />}
+            {alertState.length !== 0 ? <Alert heading={alertState[0]} message={alertState[1]} /> : null}
         </div>
     )
 }

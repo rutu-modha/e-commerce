@@ -6,7 +6,7 @@ export default function Register() {
     const [password, setPassword] = useState("")
     const [role, setRole] = useState("")
     const [alertState, setAlertState] = useState([])
-    const verify = async () => {
+    const verify = () => {
         if (name === "" || email === "" || password === "" || role === "")
             setAlertState(["Error", "Please fill up the details properly"])
         else if (!email.includes("@") || !email.includes(".com"))
@@ -14,7 +14,7 @@ export default function Register() {
         else if (password.length < 8)
             setAlertState(["Error", "Please enter a strong password"])
         else {
-            await fetch("http://localhost:5000/signup", {
+            fetch("http://localhost:5000/signup", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -28,8 +28,11 @@ export default function Register() {
             }).then((res) => {
                 return res.json()
             }).then((data) => {
-                setAlertState(["Success", "You have signed up successfully"])
-            
+                setAlertState(["Success", "You have signed up successfully\nPlease log in to continue"])
+                setName("")
+                setEmail("")
+                setPassword("")
+                setRole("")
             }).catch((err) => {
                 setAlertState(["Error", "An error occured while signing you up. Please try again later."])
                 console.log(err)
@@ -52,10 +55,7 @@ export default function Register() {
                 <option>Retailer</option>
             </select>
             <br /><br />
-            <button className="bodyBtn" onClick={() => {
-                verify
-                window.location.href="http://localhost:3000/#/verify"
-            }}>Sign Up</button>
+            <button className="bodyBtn" onClick={verify}>Sign Up</button>
             {alertState.length !== 0 && <Alert heading={alertState[0]} message={alertState[1]} />}
         </div>
     )

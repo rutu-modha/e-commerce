@@ -30,16 +30,15 @@ const signup = async (req, res) => {
     }
 }
 const login = async (req, res) => {
-    const { email, password } = req.body
-    const user = await users.findOne({ email: email })
-    const match = await bcrypt.compare(password, user.password)
+    const user = await users.findOne({ email: req.body.email })
+    const match = await bcrypt.compare(req.body.password, user.password)
     const token = generateToken(user)
     if (match) {
-        [res.status(200).json({ message: "You have logged in successfully" })
-            .cookie("token", token, {
-                httpOnly: true,
-                maxAge: 3600000
-            }), true]
+        [res.status(200).cookie("token", token, {
+            httpOnly: true,
+            maxAge: 3600000
+        }), true]
+        console.log("Cookie set successfully")
     } else {
         [res.status(400).json({ message: "Invalid credentials" }), false]
     }

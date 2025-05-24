@@ -1,8 +1,8 @@
-const products = require("../schemas/products")
+const { productSchema } = require("../schemas/products")
 module.exports = addProduct = async (req, res) => {
     const { name, price, description } = req.body
     const imageURL = req.file.filename
-    const Product = new products({
+    const Product = new productSchema({
         name: name,
         price: price,
         description: description,

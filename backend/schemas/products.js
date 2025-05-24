@@ -17,4 +17,7 @@ const productSchema = new mongodb.Schema({
         required: true
     }
 })
-module.exports = mongodb.model("product", productSchema)
+module.exports = { 
+    productModel: mongodb.model("product", productSchema), 
+    productSchema: productSchema 
+}

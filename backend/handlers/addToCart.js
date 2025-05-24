@@ -1,6 +1,7 @@
 const cart = require("../schemas/cart")
 module.exports = addToCart = async (req, res) => {
-    const { name, cartItem } = req.body
+    const cartItem = req.body.cartItem
+    const name = req.user.name
     const Cart = new cart({
         name: name,
         cartItem: cartItem

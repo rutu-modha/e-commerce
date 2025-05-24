@@ -16,8 +16,9 @@ export default function ProductForm(){
         const token = localStorage.getItem("token")
         await fetch("http://localhost:5000/products", {
             method: "POST",
+            credentials: "include",
             headers: {
-                "Authorization": `Bearer ${token}`,
+                "Content-type": "application/json"
             },
             body: formData
         }).then((res) => {

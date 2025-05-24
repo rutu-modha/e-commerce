@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react"
-import Token from "../Token"
 export default function Cart() {
     const [cart, setCart] = useState([])
-    const token = localStorage.getItem("token")
-    const decoded = Token()
     useEffect(() => {
         fetch("http://localhost:5000/cart", {
             method: "GET",
+            credentials: "include",
             headers: {
                 "Content-type": "application/json",
             }
@@ -22,7 +20,7 @@ export default function Cart() {
     }, [])
     return (
         <div className="body">
-            <h1>Hi, {decoded.name}!</h1>
+            <h1>Cart Items</h1>
             <h2>Here is the product you added to cart:</h2>
             <div className="clist">
                 {cart.map((item, index) => (

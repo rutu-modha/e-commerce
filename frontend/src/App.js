@@ -5,9 +5,7 @@ import Authorize from "./Components/Login"
 import ProductForm from "./Components/ProductForm"
 import ProductList from "./Components/ProductList"
 import Cart from "./Components/Cart"
-import Token from "./Token"
 export default function App(){
-    let decode = Token()
     return (
         <div>
             <div className="navbar">

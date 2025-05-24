@@ -1,7 +1,14 @@
 const express = require("express")
 const cors = require("cors")
 const path = require("path")
-const rateLimit = require("express-rate-limit") 
+const rateLimit = require("express-rate-limit")
+const cookieParser = require("cookie-parser")
+const morgan = require("morgan")
+const helmet = require("helmet") 
+const xss = require("xss-clean")
+const { body, validationResult } = require("express-validator")
+const sanitize = require("express-mongo-sanitize")
+const compress = require("compression")
 const { signup, login } = require("./handlers/auth")
 const connect = require("./connect")
 const { verifyToken } = require("./handlers/jwts")
@@ -24,6 +31,12 @@ app.use("/images", express.static(path.join(__dirname, "handlers", "images")))
 //     max: 10, 
 //     message: "Too many requests from this IP, please try again later"
 // }))
+app.use(cookieParser())
+app.use(morgan("dev"))
+app.use(helmet())
+app.use(xss())
+app.use(sanitize())
+app.use(compress())
 connect("ecommerce")
 .then(() => {
     console.log("Connected to MongoDB successfully")
@@ -31,7 +44,15 @@ connect("ecommerce")
 .catch((err) => {
     console.log(err)
 })
-app.post("/signup", async (req, res) => {
+app.post("/signup", [body("name").notEmpty().withMessage("Name is required"),
+    body("email").isEmail().withMessage("Email is not valid"),
+    body("password").isLength({ min: 8 }).withMessage("Password must be at least 8 characters long"),
+    body("role").notEmpty().withMessage("Role is required")
+], async (req, res) => {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
     await signup(req, res)
 })
 app.post("/login", async (req, res) => {
