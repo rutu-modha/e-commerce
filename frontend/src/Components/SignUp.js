@@ -16,6 +16,7 @@ export default function Register() {
         else {
             fetch("http://localhost:5000/signup", {
                 method: "POST",
+                credentials: "include",
                 headers: {
                     "Content-type": "application/json"
                 },
@@ -28,7 +29,7 @@ export default function Register() {
             }).then((res) => {
                 return res.json()
             }).then((data) => {
-                setAlertState(["Success", "You have signed up successfully\nPlease log in to continue"])
+                setAlertState([data[0], data[1]])
                 setName("")
                 setEmail("")
                 setPassword("")

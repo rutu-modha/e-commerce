@@ -13,7 +13,6 @@ export default function ProductForm(){
     formData.append("image", image)
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const token = localStorage.getItem("token")
         await fetch("http://localhost:5000/products", {
             method: "POST",
             credentials: "include",

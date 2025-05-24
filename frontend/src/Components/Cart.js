@@ -15,6 +15,7 @@ export default function Cart() {
                 setCart(["Error", "No item added to cart\nAdd an item to cart to view changes"])
             } else{
                 setCart(data)
+                console.log(data)
             }
         })
     }, [])
@@ -23,13 +24,13 @@ export default function Cart() {
             <h1>Cart Items</h1>
             <h2>Here is the product you added to cart:</h2>
             <div className="clist">
-                {cart.map((item, index) => (
+                {cart.cartItem.map((item, index) => (
                     <div key={index} className="icard">
-                        <img src={item.cartItem.image} className="cimg" />
+                        <img src={item.image} className="cimg" />
                         <div className="pinfo">
-                            <h3>{item.cartItem.name}</h3>
-                            <p className="price">Price: {item.cartItem.price}</p>
-                            <p className="description">Description: {item.cartItem.description}</p>
+                            <h3>{item.name}</h3>
+                            <p className="price">Price: {item.price}</p>
+                            <p className="description">Description: {item.description}</p>
                         </div>
                         <div className="a2cBtn">
                             <button className="bodyBtn">Buy Now</button>

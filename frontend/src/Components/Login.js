@@ -14,6 +14,7 @@ export default function Authorize(){
         else {
             fetch("http://localhost:5000/login", {
                 method: "POST",
+                credentials: "include",
                 headers: {
                     "Content-type": "application/json"
                 },

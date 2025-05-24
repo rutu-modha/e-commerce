@@ -18,29 +18,27 @@ const signup = async (req, res) => {
     const find = await users.findOne({ email: email })
     if (find !== null) {
         res.status(400)
-            .json({
-                message: `User with email ${email} already exists` 
-            })
+            .json(["Error", `User with email ${email} already exists`])
     } else {
         await User.save()
         res.status(200)
-            .json({
-                message: "You have signed up successfully", 
-            })
+            .json(["Success", "You have signed up successfully"])
     }
 }
 const login = async (req, res) => {
     const user = await users.findOne({ email: req.body.email })
     const match = await bcrypt.compare(req.body.password, user.password)
+    console.log(`User found: ${user}`)
+    console.log(`Password match: ${match}`)
     const token = generateToken(user)
+    console.log(`Generated token\n${token}`)
     if (match) {
-        [res.status(200).cookie("token", token, {
-            httpOnly: true,
-            maxAge: 3600000
-        }), true]
+        res.status(200).cookie("token", token).json(["Success", "You have logged in successfully"])
         console.log("Cookie set successfully")
     } else {
-        [res.status(400).json({ message: "Invalid credentials" }), false]
+        res.status(400).json({ 
+            message: "Invalid credentials" 
+        })
     }
 }
 module.exports = { signup, login }

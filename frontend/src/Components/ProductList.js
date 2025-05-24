@@ -36,7 +36,10 @@ export default function ProductList() {
         }).then((res) => {
             return res.json()
         }).then((data) => {
-            setAlert(["Success", "Item added to cart successfully"])
+            setAlert([data[0], data[1]])
+        }).catch((err) => {
+            setAlert(["Error", "Failed to add item to cart"])
+            console.log(err)
         })
     }
     return (
