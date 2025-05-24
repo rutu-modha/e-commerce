@@ -25,11 +25,11 @@ export default function Cart() {
             <div className="clist">
                 {cart.map((item, index) => (
                     <div key={index} className="icard">
-                        <img src={item.cartItem[0]} className="cimg" />
+                        <img src={item.cartItem.image} className="cimg" />
                         <div className="pinfo">
-                            <h3>{item.cartItem[1]}</h3>
-                            <p className="price">Price: ₹{item.cartItem[2]}</p>
-                            <p className="description">{item.cartItem[3]}</p>
+                            <h3>{item.cartItem.name}</h3>
+                            <p className="price">Price: {item.cartItem.price}</p>
+                            <p className="description">Description: {item.cartItem.description}</p>
                         </div>
                         <div className="a2cBtn">
                             <button className="bodyBtn">Buy Now</button>
