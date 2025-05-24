@@ -26,7 +26,12 @@ export default function ProductList() {
                 "Content-type": "application/json",
             },
             body: JSON.stringify({
-                cartItem: [product.image, product.name, product.price, product.description] 
+                cartItem: [{
+                    image: product.image, 
+                    name: product.name, 
+                    price: product.price, 
+                    descriptipn: product.description
+                }] 
             })
         }).then((res) => {
             return res.json()
