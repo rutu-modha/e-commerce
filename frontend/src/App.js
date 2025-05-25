@@ -5,6 +5,7 @@ import Authorize from "./Components/Login"
 import ProductForm from "./Components/ProductForm"
 import ProductList from "./Components/ProductList"
 import Cart from "./Components/Cart"
+import Result from "./Components/Results"
 export default function App(){
     return (
         <div>
@@ -31,6 +32,7 @@ export default function App(){
                 <Route path="/products" element={<ProductForm/>}/>
                 <Route path="/" element={<ProductList/>}/>
                 <Route path="/cart" element={<Cart/>}/>
+                <Route path="/searchProducts" element={<Result/>}/>
             </Routes>
         </div>
     )

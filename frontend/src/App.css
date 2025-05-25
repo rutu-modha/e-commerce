@@ -182,3 +182,8 @@ textarea {
     position: absolute;
     margin-top: 40px;
 }
+.search {
+    position: sticky;
+    top: 60px;
+    z-index: 2;
+}

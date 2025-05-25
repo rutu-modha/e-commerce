@@ -28,17 +28,14 @@ const signup = async (req, res) => {
 const login = async (req, res) => {
     const user = await users.findOne({ email: req.body.email })
     const match = await bcrypt.compare(req.body.password, user.password)
-    console.log(`User found: ${user}`)
-    console.log(`Password match: ${match}`)
     const token = generateToken(user)
-    console.log(`Generated token\n${token}`)
     if (match) {
-        res.status(200).cookie("token", token).json(["Success", "You have logged in successfully"])
-        console.log("Cookie set successfully")
+        res.status(200).cookie("token", token, {
+            maxAge: 3600000,
+            httpOnly: true
+        }).json(["Success", "You have logged in successfully"])
     } else {
-        res.status(400).json({ 
-            message: "Invalid credentials" 
-        })
+        res.status(400).json(["Error", "Invalid credentials"])
     }
 }
 module.exports = { signup, login }

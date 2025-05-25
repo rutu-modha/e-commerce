@@ -6,15 +6,14 @@ const generateToken = (user) => {
         role: user.role,
         id: user._id 
     }, 
-    process.env.JWT_SECRET, {
-        expiresIn: "1h"
-    })
+    process.env.JWT_SECRET
+)
     return token
 }
 const verifyToken = (req, res, next) => {
     const token = req.cookies.token
     if (!token) {
-        res.status(401).json(["Error", "No token provided"])
+        res.status(401).json(["Error", "Please login to continue"])
     }
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
