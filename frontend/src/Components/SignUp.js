@@ -1,18 +1,18 @@
 import { useState } from "react"
-import Alert from "../CPopUps/Alert"
+import { useAlert } from "../AlertContext"
 export default function Register() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [role, setRole] = useState("")
-    const [alertState, setAlertState] = useState([])
+    const { showAlert } = useAlert()
     const verify = () => {
         if (name === "" || email === "" || password === "" || role === "")
-            setAlertState(["Error", "Please fill up the details properly"])
+            showAlert("Error", "Please fill up the details properly")
         else if (!email.includes("@") || !email.includes(".com"))
-            setAlertState(["Error", "Please enter a valid email"])
+            showAlert("Error", "Please enter a valid email")
         else if (password.length < 8)
-            setAlertState(["Error", "Please enter a strong password"])
+            showAlert("Error", "Please enter a strong password")
         else {
             fetch("http://localhost:5000/signup", {
                 method: "POST",
@@ -29,13 +29,13 @@ export default function Register() {
             }).then((res) => {
                 return res.json()
             }).then((data) => {
-                setAlertState([data[0], data[1]])
+                showAlert(data[0], data[1])
                 setName("")
                 setEmail("")
                 setPassword("")
                 setRole("")
             }).catch((err) => {
-                setAlertState(["Error", "An error occured while signing you up. Please try again later."])
+                showAlert("Error", "An error occured while signing you up. Please try again later.")
                 console.log(err)
             })
         }
@@ -57,7 +57,7 @@ export default function Register() {
             </select>
             <br /><br />
             <button className="bodyBtn" onClick={verify}>Sign Up</button>
-            {alertState.length !== 0 && <Alert heading={alertState[0]} message={alertState[1]} />}
+            {alert.length !== 0 && <Alert heading={alert[0]} message={alert[1]} onClose={() => showAlert("", "")} />}
         </div>
     )
 }

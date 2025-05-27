@@ -1,16 +1,17 @@
-import Alert from "../CPopUps/Alert"
+import Alert from "./Alert"
+import { useAlert } from "../AlertContext"
 import { SearchContext } from "../SearchContext"
 import { useNavigate } from "react-router-dom"
 import { useState, useContext } from "react"
 export default function Search() {
     const [input, setInput] = useState("")
-    const [alert, setAlert] = useState([])
     const { setRes } = useContext(SearchContext)
     const navigate = useNavigate()
+    const { showAlert } = useAlert()
     const handleSearch = () => {
         navigate("/searchProducts")
         if (input === "" || input === null) {
-            setAlert(["Error", "Cannot search for an empty input"])
+            showAlert(["Error", "Cannot search for an empty input"])
         } else {
             fetch("http://localhost:5000/searchProducts", {
                 method: "POST",
@@ -25,7 +26,7 @@ export default function Search() {
                 return res.json()
             }).then((data) => {
                 if (data === "" || data === null || data === undefined) {
-                    Alert(["Error", "No products found"])
+                    showAlert("Error", "No products found")
                 } else {
                     setRes(data)
                     setInput("")
@@ -37,7 +38,7 @@ export default function Search() {
         <div className="search">
             <input type="search" placeholder="Search for products..."  onChange={(e) => { setInput(e.target.value) }} />
             <button className="bodyBtn" onClick={handleSearch}>Search</button>
-            {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]} />}
+            {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]}  onClose={() => showAlert("", "")}/>}
         </div>
     )
 }

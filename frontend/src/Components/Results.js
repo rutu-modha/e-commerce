@@ -1,8 +1,9 @@
 import { SearchContext } from "../SearchContext"
 import { useState, useContext } from "react"
-import Alert from "../CPopUps/Alert"
+import Alert from "./Alert"
+import { useAlert } from "../AlertContext"
 export default function Result() {
-    const [alert, setAlert] = useState([])
+    const { showAlert } = useAlert()
     const { res } = useContext(SearchContext)
         const addToCart = (product) => {
         fetch("http://localhost:5000/cart", {
@@ -22,9 +23,9 @@ export default function Result() {
         }).then((res) => {
             return res.json()
         }).then((data) => {
-            setAlert([data[0], data[1]])
+            showAlert([data[0], data[1]])
         }).catch((err) => {
-            setAlert(["Error", "Failed to add item to cart"])
+            showAlert("Error", "Failed to add item to cart")
             console.log(err)
         })
     }
@@ -45,7 +46,7 @@ export default function Result() {
                         </div>
                     </div>
                 ))}
-                {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]}/>}
+                {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]}  onClose={() => showAlert("", "")}/>}
         </div>
     )
 }

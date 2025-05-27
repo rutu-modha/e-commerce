@@ -1,16 +1,17 @@
 import { useState } from "react"
-import Alert from "../CPopUps/Alert"
+import Alert from "./Alert"
+import { useAlert } from "../AlertContext"
 export default function Authorize(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [alertState, setAlertState] = useState([])
+    const { showAlert } = useAlert()
     const verify = () => {
         if (email === "" || password === "")
-            setAlertState(["Error", "Please fill up the details properly"])
+            showAlert("Error", "Please fill up the details properly")
         else if (!email.includes("@") || !email.includes(".com"))
-            setAlertState(["Error", "Please enter a valid email"])
+            showAlert("Error", "Please enter a valid email")
         else if (password.length < 8)
-            setAlertState(["Error", "Please enter a strong password"])
+            showAlert("Error", "Please enter a strong password")
         else {
             fetch("http://localhost:5000/login", {
                 method: "POST",
@@ -25,9 +26,9 @@ export default function Authorize(){
             }).then((res) => {
                 return res.json()
             }).then((data) => {
-                setAlertState(["Success", "You have logged in successfully"])
+                showAlert("Success", "You have logged in successfully")
             }).catch((err) => {
-                setAlertState(["Error", "An error occured while logging you in. Please try again later."])
+                showAlert("Error", "An error occured while logging you in. Please try again later.")
                 console.log(err)
             })
         }
@@ -40,7 +41,7 @@ export default function Authorize(){
             <input type="password" value={password} placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
             <br /><br />
             <button className="bodyBtn" onClick={verify}>Log In</button>
-            {alertState.length !== 0 ? <Alert heading={alertState[0]} message={alertState[1]} /> : null}
+            {alert.length !== 0 ? <Alert heading={alert[0]} message={alert[1]}  onClose={() => showAlert("", "")}/> : null}
         </div>
     )
 }

@@ -22,7 +22,7 @@ const signup = async (req, res) => {
     } else {
         await User.save()
         res.status(200)
-            .json(["Success", "You have signed up successfully"])
+            .json(["Success", "You have signed up successfully. You will receive a confirmation email shortly."])
     }
 }
 const login = async (req, res) => {
@@ -31,7 +31,6 @@ const login = async (req, res) => {
     const token = generateToken(user)
     if (match) {
         res.status(200).cookie("token", token, {
-            maxAge: 3600000,
             httpOnly: true
         }).json(["Success", "You have logged in successfully"])
     } else {

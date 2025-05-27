@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import Alert from "../CPopUps/Alert"
+import Alert from "./Alert"
 import Search from "./Search"
+import { useAlert } from "../AlertContext"
 export default function ProductList() {
     const [products, setProducts] = useState([])
-    const [alert, setAlert] = useState([])
+    const { showAlert } = useAlert()
     useEffect(() => {
         fetch("http://localhost:5000/products", {
             method: "GET",
@@ -37,9 +38,9 @@ export default function ProductList() {
         }).then((res) => {
             return res.json()
         }).then((data) => {
-            setAlert([data[0], data[1]])
+            showAlert(data[0], data[1])
         }).catch((err) => {
-            setAlert(["Error", "Failed to add item to cart"])
+            showAlert("Error", "Failed to add item to cart")
             console.log(err)
         })
     }
@@ -59,7 +60,7 @@ export default function ProductList() {
                     </div>
                 ))}
             </div>
-            {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]} />}
+            {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]}  onClose={() => showAlert("", "")}/>}
         </div>
     )
 }

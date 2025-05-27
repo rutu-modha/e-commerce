@@ -1,11 +1,12 @@
 import { useState } from "react"
-import Alert from "../CPopUps/Alert"
+import Alert from "./Alert"
+import { useAlert } from "../AlertContext"
 export default function ProductForm(){
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
     const [image, setImage] = useState(null)
-    const [alertState, setAlertState] = useState([])
+    const { showAlert } = useAlert()
     const formData = new FormData()
     formData.append("name", name)
     formData.append("price", price)
@@ -23,9 +24,9 @@ export default function ProductForm(){
         }).then((res) => {
             return res.json()
         }).then((data) => {
-            setAlertState([data[0], data[1]])
+            showAlert(data[0], data[1])
         }).catch((err) => {
-            setAlertState(["Error", "An error occured while adding the product. Please try again later."])
+            showAlert("Error", "An error occured while adding the product. Please try again later.")
             console.log(err)
         })
     }
@@ -44,7 +45,7 @@ export default function ProductForm(){
                 <br /><br />
                 <button className="bodyBtn" type="submit">Add Product</button>
             </form>
-            {alertState.length !== 0 && <Alert heading={alertState[0]} message={alertState[1]} />}
+            {alert.length !== 0 && <Alert heading={alert[0]} message={alert[1]}  onClose={() => showAlert("", "")}/>}
         </div>
     )
 }

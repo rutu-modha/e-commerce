@@ -6,9 +6,11 @@ import ProductForm from "./Components/ProductForm"
 import ProductList from "./Components/ProductList"
 import Cart from "./Components/Cart"
 import Result from "./Components/Results"
+import AlertWrapper from "./Components/AlertWrapper"
 export default function App(){
     return (
         <div>
+            <AlertWrapper />
             <div className="navbar">
                 <Link to="/">
                     <button>Home</button>

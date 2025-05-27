@@ -65,7 +65,13 @@ button {
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%);
-    animation: fadeIn 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+.fadeIn{
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+.fadeOut{
+    animation: fadeOut 0.5s ease-in-out forwards;
 }
 @keyframes fadeIn {
     0% {
@@ -73,6 +79,14 @@ button {
     }
     100% {
         opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 .alertBtn {

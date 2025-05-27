@@ -1,8 +1,9 @@
-import Alert from "../CPopUps/Alert"
+import Alert from "./Alert"
 import { useEffect, useState } from "react"
+import { useAlert } from "../AlertContext"
 export default function Cart() {
     const [cart, setCart] = useState([])
-    const [alert, setAlert] = useState([])
+    const { showAlert } = useAlert()
     useEffect(() => {
         fetch("http://localhost:5000/cart", {
             method: "GET",
@@ -13,9 +14,9 @@ export default function Cart() {
         }).then((res) => {
             return res.json()
         }).then((data) => {
-            if (data === "" || data === null || data === undefined){
+            if (data === "" || data === null || data === undefined) {
                 setCart(["Error", "No item added to cart\nAdd an item to cart to view changes"])
-            } else{
+            } else {
                 setCart(data)
                 console.log(data)
             }
@@ -33,11 +34,11 @@ export default function Cart() {
             },
             body: JSON.stringify({
                 cartItem: [{
-                    image: item.image, 
-                    name: item.name, 
-                    price: item.price, 
+                    image: item.image,
+                    name: item.name,
+                    price: item.price,
                     description: item.description
-                }] 
+                }]
             })
         }).then((res) => {
             return res.json()
@@ -52,9 +53,8 @@ export default function Cart() {
             <h1>Cart Items</h1>
             {cart.length === 0 ? (
                 <h2>Your cart is empty</h2>
-            ) : (
+            ) : (<>
                 <h2>Here are the products you added to cart:</h2>
-            )}
             <div className="clist">
                 {cart.map((item, index) => (
                     <div key={index} className="icard">
@@ -71,7 +71,8 @@ export default function Cart() {
                     </div>
                 ))}
             </div>
-            {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]} />}
+            </>)}
+            {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]} onClose={() => showAlert("", "")} />}
         </div>
     )
 }
