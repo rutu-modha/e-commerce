@@ -15,14 +15,14 @@ export default function Cart() {
             return res.json()
         }).then((data) => {
             if (data === "" || data === null || data === undefined) {
-                setCart(["Error", "No item added to cart\nAdd an item to cart to view changes"])
+                showAlert("Error", "No item added to cart. Add an item to cart to view changes")
             } else {
-                setCart(data)
+                showAlert(data)
                 console.log(data)
             }
         }).catch((err) => {
             console.log(err)
-            setCart(["Error", "Failed to fetch cart items"])
+            showAlert("Error", "Failed to fetch cart items")
         })
     }, [])
     const removeItem = (item) => {
