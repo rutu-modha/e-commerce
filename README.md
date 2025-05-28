@@ -27,4 +27,3 @@ It supports role-based access control, image uploads, and dynamic product manage
 | Frontend   | React.js             |
 | Backend    | Node.js, Express.js  |
 | Database   | MongoDB              |
-| Auth       | JWT (JSON Web Token) |
