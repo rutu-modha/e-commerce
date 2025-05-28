@@ -37,6 +37,7 @@ cd ./e-commerce
 ```
 
 **2. Install dependencies**
+- **using npm**
 ```Bash
 npm install
 cd frontend
@@ -45,14 +46,43 @@ cd ..
 cd backend
 npm install
 ```
-
+> OR
+- **using yarn**
+```Bash
+yarn install
+cd frontend
+yarn install
+cd ..
+cd backend
+yarn install
+```
+> OR
+- **using pnpm**
+```Bash
+pnpm install
+cd frontend
+pnpm install
+cd ..
+cd backend
+pnpm install
+```
 **3. Setup a `.env` at root file with your own Mongo_URI and JWT_SECRET variables**
 
 **4. Run both servers**
-   - ```Bash
+- ```Bash
      cd ..
      npm run start
      ```
+> OR
+- ```Bash
+  cd ..
+  yarn run start
+  ```
+> OR
+- ```Bash
+  cd ..
+  pnpm run start
+  ```
 ## ✅ Upcoming Features
 
 - OAuth with Google
