@@ -22,7 +22,7 @@ It supports role-based access control, image uploads, and dynamic product manage
 
 ## 🛠️ Tech Stack
 
-| Layer      | Technology           |
+| Area      | Technology           |
 |------------|----------------------|
 | Frontend   | React.js             |
 | Backend    | Node.js, Express.js  |
