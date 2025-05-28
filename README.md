@@ -53,7 +53,7 @@ cd ..
 cd backend
 npm install
 ```
-> OR
+*OR*
 - **using yarn**
 ```Bash
 yarn install
@@ -63,7 +63,7 @@ cd ..
 cd backend
 yarn install
 ```
-> OR
+*OR*
 - **using pnpm**
 ```Bash
 pnpm install
@@ -76,20 +76,20 @@ pnpm install
 **3. Setup a `.env` at root file with your own Mongo_URI and JWT_SECRET variables**
 
 **4. Run both servers**
-- ```Bash
-     cd ..
-     npm run start
-     ```
-  > OR
-- ```Bash
-  cd ..
-  yarn run start
-  ```
-  > OR
-- ```Bash
-  cd ..
-  pnpm run start
-  ```
+```Bash
+cd ..
+npm run start
+```
+*OR*
+```Bash
+cd ..
+yarn run start
+```
+*OR*
+```Bash
+cd ..
+pnpm run start
+```
 ## ✅ Upcoming Features
 
 - OAuth with Google
