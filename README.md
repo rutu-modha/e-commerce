@@ -73,12 +73,12 @@ pnpm install
      cd ..
      npm run start
      ```
-> OR
+  > OR
 - ```Bash
   cd ..
   yarn run start
   ```
-> OR
+  > OR
 - ```Bash
   cd ..
   pnpm run start
