@@ -27,3 +27,41 @@ It supports role-based access control, image uploads, and dynamic product manage
 | Frontend   | React.js             |
 | Backend    | Node.js, Express.js  |
 | Database   | MongoDB              |
+
+## 💻 Getting Started
+
+**1. Clone the repository** 
+   ```Bash
+   git clone "https://github.com/rutu-modha/e-commerce.git"
+
+cd ./e-commerce
+```
+
+**2. Install dependencies**
+```Bash
+cd frontend && npm install
+```  
+```Bash
+cd ../backend && npm install
+```
+
+3. Setup a `.env` at root file with your own Mongo_URI and JWT_SECRET variables
+
+**4. Run both servers**
+   - ```Bash
+     cd .. && npm run start
+     ```
+## ✅ Upcoming Features
+
+- OAuth with Google
+- Customer Support Page
+- Static About and Contact Pages
+
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+## 👨‍💻 Author
+
+**Hrutav Modha**
+(_modhahrutav@gmail.com_)
