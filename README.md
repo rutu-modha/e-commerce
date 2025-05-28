@@ -1,14 +1,30 @@
-# E-Commerce Web App
-This is a full-stack e-commerce web application developed with the MERN stack.
-## Features
-- User Authentication
-- Role-Based Access Control
-- Retailer Product Uploads with Image Handling
-- Product Listing Functionality
-## Roles
-- **Retailer**: Can upload their products, view others' and purchase them also
-- **Consumer**: Can view and purchase products.
-## Tech Stack
-- Frontend: React.js
-- Backend: Node.js + Express.js
-- Database: MongoDB
+# 🛒 E-Commerce Web App
+
+A full-stack e-commerce platform built with the MERN stack.  
+It supports role-based access control, image uploads, and dynamic product management for retailers and consumers.
+
+## 🔐 User Roles
+
+- **Retailer**
+  - Upload products with images
+  - View and purchase other products
+- **Consumer**
+  - Browse products
+  - Add to cart and buy items
+
+## 🚀 Key Features
+
+- JWT-based User Authentication
+- Role-Based Access Control (RBAC)
+- Image Uploads using Multer
+- Product Listings with Dynamic Rendering
+- Cart Functionality with Purchase Flow
+
+## 🛠️ Tech Stack
+
+| Layer      | Technology           |
+|------------|----------------------|
+| Frontend   | React.js             |
+| Backend    | Node.js, Express.js  |
+| Database   | MongoDB              |
+| Auth       | JWT (JSON Web Token) |
