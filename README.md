@@ -33,22 +33,25 @@ It supports role-based access control, image uploads, and dynamic product manage
 **1. Clone the repository** 
    ```Bash
    git clone "https://github.com/rutu-modha/e-commerce.git"
-
 cd ./e-commerce
 ```
 
 **2. Install dependencies**
 ```Bash
-cd frontend && npm install
-
-cd ../backend && npm install
+npm install
+cd frontend
+npm install
+cd ..
+cd backend
+npm install
 ```
 
-3. Setup a `.env` at root file with your own Mongo_URI and JWT_SECRET variables
+**3. Setup a `.env` at root file with your own Mongo_URI and JWT_SECRET variables**
 
 **4. Run both servers**
    - ```Bash
-     cd .. && npm run start
+     cd ..
+     npm run start
      ```
 ## ✅ Upcoming Features
 
