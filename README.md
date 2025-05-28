@@ -105,5 +105,6 @@ This project is licensed under the [MIT License](./LICENSE).
 **Hrutav Modha**
 (_modhahrutav@gmail.com_)
 
-### 🤝 Contributions
+## 🤝 Contributions
+
 Feel free to fork, submit PRs, or open issues. Let's build something cool together!
