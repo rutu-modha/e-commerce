@@ -1,6 +1,6 @@
 # Contributor Covenant Code of Conduct
 
-## Our Pledge
+## Pledge
 
 I pledge to make participation in our
 community a harassment-free experience for everyone, regardless of age, body
@@ -12,7 +12,7 @@ and orientation.
 I pledge to act and interact in ways that contribute to an open, welcoming,
 diverse, inclusive, and healthy community.
 
-## Our Standards
+## Standards
 
 Examples of behavior that contributes to a positive environment for our
 community include:
