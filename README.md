@@ -40,8 +40,7 @@ cd ./e-commerce
 **2. Install dependencies**
 ```Bash
 cd frontend && npm install
-```  
-```Bash
+
 cd ../backend && npm install
 ```
 
