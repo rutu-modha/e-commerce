@@ -100,6 +100,8 @@ pnpm run start
 
 This project is licensed under the [MIT License](./LICENSE).
 
+> If you liked this project, please don't forgt to give this repository a star. Your 1 star means a lot to me.
+
 ## 👨‍💻 Author
 
 **Hrutav Modha**
