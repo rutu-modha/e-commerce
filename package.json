@@ -10,6 +10,6 @@
     "description": "An ECommerce Website made using MERN stack",
     "devDependencies": {
         "concurrently": "^9.1.2"
-    }
+    },
     "license": "MIT"
 }
