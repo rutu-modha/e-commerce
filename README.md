@@ -4,7 +4,7 @@ A full-stack e-commerce platform built with the MERN stack.
 It supports role-based access control, image uploads, and dynamic product management for retailers and consumers.
 
 ## Live Demo
-[E-Commerce](Frontend-only for now)(https://e-commerce-mn8s.onrender.com)
+[E-Commerce](https://e-commerce-mn8s.onrender.com)
 
 > **Note:** Currently, the link is frontend-only and not functional. Backend will be added soon with proper configurations and functionalities working well.
 ## 🔐 User Roles
