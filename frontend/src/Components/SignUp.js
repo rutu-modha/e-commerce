@@ -14,7 +14,7 @@ export default function Register() {
         else if (password.length < 8)
             showAlert("Error", "Please enter a strong password")
         else {
-            fetch("http://localhost:5000/signup", {
+            fetch(`${REACT_APP_BACKEND_URL}/signup`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
