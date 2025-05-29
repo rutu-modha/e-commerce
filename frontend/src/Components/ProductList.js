@@ -21,7 +21,7 @@ export default function ProductList() {
         })
     }, [])
     const addToCart = (product) => {
-        fetch(`{REACT_APP_BACKEND_URL}/cart`, {
+        fetch(`${REACT_APP_BACKEND_URL}/cart`, {
             method: "POST",
             credentials: "include",
             headers: {
