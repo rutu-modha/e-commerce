@@ -20,19 +20,20 @@ const addToCart = require("./handlers/addToCart")
 const showCart = require("./handlers/showCart")
 const deleteCart = require("./handlers/deleteCart")
 const searchProducts = require("./handlers/searchProducts")
+require("dotenv").config()
 const app = express()
 require("dotenv").config()
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: process.env.REACT_APP_FRONTEND_URL,
     credentials: true
 }))
 app.use(express.json())
 app.use("/images", express.static(path.join(__dirname, "handlers", "images")))
-// app.use(rateLimit({
-//     windowMs: 120 * 60 * 1000,
-//     max: 10, 
-//     message: "Too many requests from this IP, please try again later"
-// }))
+app.use(rateLimit({
+    windowMs: 120 * 60 * 1000,
+    max: 10, 
+    message: "Too many requests from this IP, please try again later"
+}))
 app.use(cookieParser())
 app.use(morgan("dev"))
 app.use(helmet())
@@ -79,5 +80,5 @@ app.post("/searchProducts", async (req, res) => {
     await searchProducts(req, res)
 })
 app.listen(5000, () => {
-    console.log("Server is running at http://localhost:5000")
+    console.log("Server is running at port 5000")
 })
