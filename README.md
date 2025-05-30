@@ -3,12 +3,12 @@
 A full-stack e-commerce platform built with the MERN stack.  
 It supports role-based access control, image uploads, and dynamic product management for retailers and consumers.
 
-> **Note:** Currently, the link is frontend-only and not functional. Backend will be added soon with proper configurations and functionalities working well.
 ## 🔐 User Roles
 
 - **Retailer**
   - Upload products with images
   - View and purchase other products
+  
 - **Consumer**
   - Browse products
   - Add to cart and buy items
