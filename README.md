@@ -110,6 +110,6 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ## 🤝 Contributions
 
-Feel free to fork, submit PRs, or open issues. Let's build something cool together!
+Feel free to fork, submit PRs, or open issues. Let's build something cool!
 
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=rutu-modha.e-commerce)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/rutu-modha/e-commerce&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=visits&edge_flat=false)](https://github.com/rutu-modha/e-commerce)
