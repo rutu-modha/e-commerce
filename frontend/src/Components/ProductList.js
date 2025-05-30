@@ -6,7 +6,7 @@ export default function ProductList() {
     const [products, setProducts] = useState([])
     const { showAlert } = useAlert()
     useEffect(() => {
-        fetch(`${REACT_APP_BACKEND_URL}/products`, {
+        fetch(`http://localhost:5000/products`, {
             method: "GET",
             credentials: "include",
             headers: {
