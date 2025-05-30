@@ -6,7 +6,7 @@ export default function Result() {
     const { showAlert } = useAlert()
     const { res } = useContext(SearchContext)
         const addToCart = (product) => {
-        fetch(`${REACT_APP_BACKEND_URL}/cart`, {
+        fetch(`http://localhost:5000/cart`, {
             method: "POST",
             credentials: "include",
             headers: {
