@@ -111,3 +111,5 @@ This project is licensed under the [MIT License](./LICENSE).
 ## 🤝 Contributions
 
 Feel free to fork, submit PRs, or open issues. Let's build something cool together!
+
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=rutu-modha.e-commerce)
