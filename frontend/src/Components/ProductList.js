@@ -6,7 +6,7 @@ export default function ProductList() {
     const [products, setProducts] = useState([])
     const { showAlert } = useAlert()
     useEffect(() => {
-        fetch(`http://localhost:5000/products`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/products`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -21,7 +21,7 @@ export default function ProductList() {
         })
     }, [])
     const addToCart = (product) => {
-        fetch(`http://localhost:5000/cart`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
             method: "POST",
             credentials: "include",
             headers: {

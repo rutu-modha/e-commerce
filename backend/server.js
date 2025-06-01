@@ -20,7 +20,6 @@ const addToCart = require("./handlers/addToCart")
 const showCart = require("./handlers/showCart")
 const deleteCart = require("./handlers/deleteCart")
 const searchProducts = require("./handlers/searchProducts")
-require("dotenv").config()
 const app = express()
 require("dotenv").config()
 app.use(cors({
@@ -47,9 +46,12 @@ connect("ecommerce")
 .catch((err) => {
     console.log(err)
 })
-app.post("/signup", [body("name").notEmpty().withMessage("Name is required"),
+app.post("/signup", [
+    body("name").notEmpty().withMessage("Name is required"),
     body("email").isEmail().withMessage("Email is not valid"),
-    body("password").isLength({ min: 8 }).withMessage("Password must be at least 8 characters long"),
+    body("password").isLength({ 
+        min: 8 
+    }).withMessage("Password must be at least 8 characters long"),
     body("role").notEmpty().withMessage("Role is required")
 ], async (req, res) => {
     const errors = validationResult(req)
@@ -58,7 +60,12 @@ app.post("/signup", [body("name").notEmpty().withMessage("Name is required"),
     }
     await signup(req, res)
 })
-app.post("/login", async (req, res) => {
+app.post("/login", [
+    body("email").isEmail().withMessage("Email is not valid"),
+    body("password").isLength({ 
+        min: 8
+     }).withMessage("Password must be at least 8 characters long")
+],async (req, res) => {
     await login(req, res)
 })
 app.post("/products", verifyToken, checkRole("Retailer"), upload.single("image"), async (req, res) => {

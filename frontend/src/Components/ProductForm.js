@@ -14,7 +14,7 @@ export default function ProductForm(){
     formData.append("image", image)
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await fetch("http://localhost:5000/products", {
+        await fetch(`${process.env.REACT_APP_BACKEND_URL}/products`, {
             method: "POST",
             credentials: "include",
             headers: {

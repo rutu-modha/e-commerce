@@ -2,10 +2,10 @@ import Alert from "./Alert"
 import { useEffect, useState } from "react"
 import { useAlert } from "../AlertContext"
 export default function Cart() {
-    const [cart, setCart] = useState([])
+    const [cart] = useState([])
     const { showAlert } = useAlert()
     useEffect(() => {
-        fetch("http://localhost:5000/cart", {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -26,7 +26,7 @@ export default function Cart() {
         })
     }, [])
     const removeItem = (item) => {
-        fetch("http://localhost:5000/cart", {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
             method: "DELETE",
             credentials: "include",
             headers: {

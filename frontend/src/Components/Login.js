@@ -13,7 +13,7 @@ export default function Authorize(){
         else if (password.length < 8)
             showAlert("Error", "Please enter a strong password")
         else {
-            fetch("http://localhost:5000/login", {
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/login`, {
                 method: "POST",
                 credentials: "include",
                 headers: {

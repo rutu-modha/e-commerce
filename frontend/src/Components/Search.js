@@ -13,7 +13,7 @@ export default function Search() {
         if (input === "" || input === null) {
             showAlert(["Error", "Cannot search for an empty input"])
         } else {
-            fetch(`http://localhost:5000/searchProducts`, {
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/searchProducts`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
