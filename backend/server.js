@@ -26,13 +26,23 @@ app.use(cors({
     origin: process.env.REACT_APP_FRONTEND_URL,
     credentials: true
 }))
-app.use(express.json())
+app.use(
+    express.json({
+        limit: "1mb"
+    })
+)
+app.use(
+    express.urlencoded({
+        extended: true,
+        limit: "1mb"
+    })
+)
 app.use("/images", express.static(path.join(__dirname, "handlers", "images")))
-app.use(rateLimit({
-    windowMs: 120 * 60 * 1000,
-    max: 10, 
-    message: "Too many requests from this IP, please try again later"
-}))
+// app.use(rateLimit({
+//     windowMs: 120 * 60 * 1000,
+//     max: 10, 
+//     message: "Too many requests from this IP, please try again later"
+// }))
 app.use(cookieParser())
 app.use(morgan("dev"))
 app.use(helmet())
@@ -86,6 +96,6 @@ app.delete("/cart", verifyToken, async (req, res) => {
 app.post("/searchProducts", async (req, res) => {
     await searchProducts(req, res)
 })
-app.listen(5000, () => {
-    console.log("Server is running at port 5000")
+app.listen(5000, process.env.HOST, () => {
+    console.log("Server is running at port 5000")   
 })

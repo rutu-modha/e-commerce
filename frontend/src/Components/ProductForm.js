@@ -17,9 +17,6 @@ export default function ProductForm(){
         await fetch(`${process.env.REACT_APP_BACKEND_URL}/products`, {
             method: "POST",
             credentials: "include",
-            headers: {
-                "Content-type": "application/json"
-            },
             body: formData
         }).then((res) => {
             return res.json()

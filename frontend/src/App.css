@@ -1,7 +1,8 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
+
 body {
     font-family: "Roboto";
     background-color: white;
@@ -12,19 +13,24 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
 h1 {
     margin: 10px;
 }
+
 .body {
     margin-top: 10px;
 }
-input, select {
+
+input,
+select {
     margin-top: 10px;
     padding: 4px;
     border: solid 1px black;
     border-radius: 10px;
     width: 255px;
 }
+
 .navbar {
     position: sticky;
     z-index: 2;
@@ -38,6 +44,7 @@ input, select {
     display: flex;
     justify-content: space-around;
 }
+
 button {
     margin-top: 20px;
     background: none;
@@ -45,6 +52,7 @@ button {
     border: none;
     cursor: pointer;
 }
+
 .bodyBtn {
     padding: 5px;
     margin: 5px;
@@ -53,42 +61,50 @@ button {
     background: #000;
     color: white;
 }
+
 .alert {
     background-color: black;
-    border-radius: 10px; 
-    padding: 20px; 
-    width: 300px; 
-    margin: 20px auto; 
-    text-align: center; 
-    z-index: 4; 
-    position: fixed; 
-    top: 50%; 
-    left: 50%; 
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
+    z-index: 4;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     transition: opacity 1s ease-in-out;
 }
-.fadeIn{
+
+.fadeIn {
     animation: fadeIn 0.5s ease-in-out forwards;
 }
-.fadeOut{
+
+.fadeOut {
     animation: fadeOut 0.5s ease-in-out forwards;
 }
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
+
 @keyframes fadeOut {
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
 }
+
 .alertBtn {
     background-color: white;
     border-radius: 5px;
@@ -99,6 +115,7 @@ button {
     text-align: center;
     cursor: pointer;
 }
+
 textarea {
     margin: 5px;
     padding: 5px;
@@ -109,6 +126,7 @@ textarea {
     font-family: "Roboto";
     font-size: 14px;
 }
+
 .pimg {
     width: 150px;
     height: 150px;
@@ -117,6 +135,7 @@ textarea {
     border: double 4px black;
     background-color: white;
 }
+
 .plist {
     display: flex;
     flex-wrap: wrap;
@@ -125,7 +144,8 @@ textarea {
     margin: 10px;
     padding: 10px;
 }
-.pcard{
+
+.pcard {
     margin: 5px;
     padding: 5px;
     border-radius: 10px;
@@ -136,33 +156,39 @@ textarea {
     box-shadow: 0 20px 30px #000;
     transition: all 0.75s ease;
 }
+
 .pcard:hover {
     background: linear-gradient(to bottom right, #fff, whitesmoke, #999);
     box-shadow: 0 10px 20px #000;
     transform: scale(1.025) translateY(-10px);
     transition: all 0.75s ease;
 }
+
 .clist {
     left: 0;
     position: absolute;
     display: flex;
     flex-direction: column;
 }
+
 .icard:hover {
     background: rgb(200, 200, 200);
 }
+
 .icard {
     width: 100vw;
     display: flex;
     border-bottom: 2px solid black;
-    border-radius: 10px; 
+    border-radius: 10px;
     padding: 5px 0 5px 0;
     margin: 5px 0 5px 0;
 }
+
 .pinfo {
     display: flex;
     flex-direction: column;
 }
+
 .cimg {
     width: 130px;
     height: 80px;
@@ -170,6 +196,7 @@ textarea {
     margin: 5px;
     border: double 4px black;
 }
+
 .a2cBtn {
     right: 0;
     position: absolute;
@@ -182,22 +209,54 @@ textarea {
     border-radius: 5px;
     transform: translateX(-20%);
 }
+
 .pinfo h3 {
     left: 150px;
     position: absolute;
 }
+
 .price {
     left: 150px;
     position: absolute;
     margin-top: 20px;
 }
+
 .description {
     left: 150px;
     position: absolute;
+    text-align: left;
     margin-top: 40px;
+    height: fit-content;
+    width: 70vw;
+    overflow-y: auto;
 }
+
 .search {
     position: sticky;
     top: 60px;
     z-index: 2;
+}
+
+@media only screen and (max-width: 769px) {
+    .description {
+        left: 150px;
+        position: absolute;
+        text-align: left;
+        margin-top: 40px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 35vw;
+    }
+
+    .a2cBtn {
+        right: 0;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: -10px;
+    }
 }
