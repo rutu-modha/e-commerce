@@ -7,6 +7,7 @@ import ProductList from "./Components/ProductList"
 import Cart from "./Components/Cart"
 import Result from "./Components/Results"
 import AlertWrapper from "./Components/AlertWrapper"
+import Detail from "./Components/ProductInfo"
 export default function App(){
     return (
         <div>
@@ -35,6 +36,7 @@ export default function App(){
                 <Route path="/" element={<ProductList/>}/>
                 <Route path="/cart" element={<Cart/>}/>
                 <Route path="/searchProducts" element={<Result/>}/>
+                <Route path="/:id" element={<Detail/>}/>
             </Routes>
         </div>
     )

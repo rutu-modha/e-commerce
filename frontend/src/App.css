@@ -219,6 +219,7 @@ textarea {
     left: 150px;
     position: absolute;
     margin-top: 20px;
+    text-align: left;
 }
 
 .description {
@@ -237,16 +238,21 @@ textarea {
     z-index: 2;
 }
 
+.productImg {
+    height: 35vw;
+    width: 35vw;
+}
+.productInfo {
+    position: absolute;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 10px;
+}
 @media only screen and (max-width: 769px) {
     .description {
-        left: 150px;
-        position: absolute;
-        text-align: left;
-        margin-top: 40px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 35vw;
+        display: none;
     }
 
     .a2cBtn {

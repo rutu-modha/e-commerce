@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router"
 import Alert from "./Alert"
 import Search from "./Search"
 import { useAlert } from "../AlertContext"
 export default function ProductList() {
     const [products, setProducts] = useState([])
     const { showAlert } = useAlert()
+    const navigate = useNavigate()
     useEffect(() => {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/products`, {
             method: "GET",
@@ -51,7 +53,7 @@ export default function ProductList() {
             <h2>Here is the product listing from our side, which you might find interesting:</h2>
             <div className="plist">
                 {products.map((product, index) => (
-                    <div className="pcard" key={index}>
+                    <div className="pcard" key={index} onClick={() => { navigate(`/${product._id}`) }}>
                         <img src={product.image} className="pimg" />
                         <h3>{product.name}</h3>
                         <p>Price: ₹{product.price}</p>
