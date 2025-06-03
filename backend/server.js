@@ -21,6 +21,8 @@ const showCart = require("./handlers/showCart")
 const deleteCart = require("./handlers/deleteCart")
 const searchProducts = require("./handlers/searchProducts")
 const showProduct = require("./handlers/showProduct")
+const saveComment = require("./handlers/saveComment")
+const showReview = require("./handlers/showReview")
 const app = express()
 require("dotenv").config()
 app.use(cors({
@@ -99,6 +101,12 @@ app.post("/searchProducts", async (req, res) => {
 })
 app.get("/:id", async (req, res) => {
     await showProduct(req, res)
+})
+app.post("/reviews", verifyToken, async (req, res) => {
+    await saveComment(req, res)
+})
+app.get("/reviews", async (req, res) => {
+    await showReview(req, res)
 })
 app.listen(5000, () => {
     console.log("Server is running at port 5000")   

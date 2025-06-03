@@ -42,7 +42,7 @@ export default function Cart() {
         }).then((res) => {
             return res.json()
         }).then((data) => {
-            showAlert([data[0], data[1]])
+            showAlert(data[0], data[1])
         }).catch((err) => {
             console.log(err)
         })

@@ -1,9 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-}
-
-body {
+} body {
     font-family: "Roboto";
     background-color: white;
     color: #000;
@@ -12,26 +10,17 @@ body {
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-h1 {
+} h1 {
     margin: 10px;
-}
-
-.body {
+} .body {
     margin-top: 10px;
-}
-
-input,
-select {
+} input, select {
     margin-top: 10px;
     padding: 4px;
     border: solid 1px black;
     border-radius: 10px;
     width: 255px;
-}
-
-.navbar {
+} .navbar {
     position: sticky;
     z-index: 2;
     top: 0;
@@ -43,26 +32,20 @@ select {
     color: white;
     display: flex;
     justify-content: space-around;
-}
-
-button {
+} button {
     margin-top: 20px;
     background: none;
     color: white;
     border: none;
     cursor: pointer;
-}
-
-.bodyBtn {
+} .bodyBtn {
     padding: 5px;
     margin: 5px;
     width: 100px;
     border-radius: 5px;
     background: #000;
     color: white;
-}
-
-.alert {
+} .alert {
     background-color: black;
     border-radius: 10px;
     padding: 20px;
@@ -75,48 +58,23 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: opacity 1s ease-in-out;
-}
-
-.fadeIn {
+} .fadeIn {
     animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-.fadeOut {
+} .fadeOut {
     animation: fadeOut 0.5s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
+} @keyframes fadeIn {
     0% {
         opacity: 0;
-    }
-
-    100% {
+    } 100% {
         opacity: 1;
     }
-}
-
-@keyframes fadeOut {
+} @keyframes fadeOut {
     0% {
         opacity: 1;
-    }
-
-    100% {
+    } 100% {
         opacity: 0;
     }
-}
-
-.alertBtn {
-    background-color: white;
-    border-radius: 5px;
-    border: none;
-    color: black;
-    padding: 5px;
-    width: 90px;
-    text-align: center;
-    cursor: pointer;
-}
-
-textarea {
+} textarea {
     margin: 5px;
     padding: 5px;
     border: solid 1px black;
@@ -125,27 +83,21 @@ textarea {
     height: 100px;
     font-family: "Roboto";
     font-size: 14px;
-}
-
-.pimg {
+} .pimg {
     width: 150px;
     height: 150px;
     border-radius: 5px;
     margin: 5px;
     border: double 4px black;
     background-color: white;
-}
-
-.plist {
+} .plist {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 10px;
     padding: 10px;
-}
-
-.pcard {
+} .pcard {
     margin: 5px;
     padding: 5px;
     border-radius: 10px;
@@ -155,49 +107,35 @@ textarea {
     background: #fff;
     box-shadow: 0 20px 30px #000;
     transition: all 0.75s ease;
-}
-
-.pcard:hover {
+} .pcard:hover {
     background: linear-gradient(to bottom right, #fff, whitesmoke, #999);
     box-shadow: 0 10px 20px #000;
     transform: scale(1.025) translateY(-10px);
     transition: all 0.75s ease;
-}
-
-.clist {
+} .clist {
     left: 0;
     position: absolute;
     display: flex;
     flex-direction: column;
-}
-
-.icard:hover {
+} .icard:hover {
     background: rgb(200, 200, 200);
-}
-
-.icard {
+} .icard {
     width: 100vw;
     display: flex;
     border-bottom: 2px solid black;
     border-radius: 10px;
     padding: 5px 0 5px 0;
     margin: 5px 0 5px 0;
-}
-
-.pinfo {
+} .pinfo {
     display: flex;
     flex-direction: column;
-}
-
-.cimg {
+} .cimg {
     width: 130px;
     height: 80px;
     border-radius: 5px;
     margin: 5px;
     border: double 4px black;
-}
-
-.a2cBtn {
+} .a2cBtn {
     right: 0;
     position: absolute;
     display: flex;
@@ -208,21 +146,15 @@ textarea {
     padding: 5px;
     border-radius: 5px;
     transform: translateX(-20%);
-}
-
-.pinfo h3 {
+} .pinfo h3 {
     left: 150px;
     position: absolute;
-}
-
-.price {
+} .price {
     left: 150px;
     position: absolute;
     margin-top: 20px;
     text-align: left;
-}
-
-.description {
+} .description {
     left: 150px;
     position: absolute;
     text-align: left;
@@ -230,32 +162,24 @@ textarea {
     height: fit-content;
     width: 70vw;
     overflow-y: auto;
-}
-
-.search {
+} .search {
     position: sticky;
-    top: 60px;
+    top: 70px;
     z-index: 2;
-}
-
-.productImg {
+} .productImg {
     height: 35vw;
     width: 35vw;
-}
-.productInfo {
+} .productInfo {
     position: absolute;
     left: 10px;
     display: flex;
     flex-direction: column;
     text-align: left;
     margin-bottom: 10px;
-}
-@media only screen and (max-width: 769px) {
+} @media only screen and (max-width: 769px) {
     .description {
         display: none;
-    }
-
-    .a2cBtn {
+    } .a2cBtn {
         right: 0;
         position: absolute;
         display: flex;
