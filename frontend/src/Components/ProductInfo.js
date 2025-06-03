@@ -57,7 +57,7 @@ export default function Detail(){
                 },
                 credentials: "include",
                 body: JSON.stringify({
-                    regards: name,
+                    regard: name,
                     comment: review
                 })
             }).then((res) => {

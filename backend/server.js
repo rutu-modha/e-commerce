@@ -99,14 +99,14 @@ app.delete("/cart", verifyToken, async (req, res) => {
 app.post("/searchProducts", async (req, res) => {
     await searchProducts(req, res)
 })
-app.get("/:id", async (req, res) => {
-    await showProduct(req, res)
-})
 app.post("/reviews", verifyToken, async (req, res) => {
     await saveComment(req, res)
 })
 app.get("/reviews", async (req, res) => {
     await showReview(req, res)
+})
+app.get("/:id", async (req, res) => {
+    await showProduct(req, res)
 })
 app.listen(5000, () => {
     console.log("Server is running at port 5000")   
