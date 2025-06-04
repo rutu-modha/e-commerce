@@ -70,7 +70,7 @@ export default function Detail(){
         }
     }
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/reviews`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/reviews?name=${encodeURIComponent(product.name)}`, {
             method: "GET",
             headers: {
                 "Content-type": "application/json"
@@ -82,7 +82,7 @@ export default function Detail(){
         }).catch((error) => {
             console.log(error)
         })
-    }, [])
+    }, [product])
     return (
         <div className="body">
             <div>
@@ -105,8 +105,9 @@ export default function Detail(){
                 <button className="bodyBtn" onClick={() => postReview(product.name)}>Comment</button>
                 <h2>See the reviews from our other customers who bought the same product</h2>
                 {comments.map((review, index) => (
-                    <div key={index}>
+                    <div key={index} className="comments">
                         <h3>{review.name}</h3>
+                        <br/>
                         <p>{review.comment}</p>
                     </div>
                 ))}
