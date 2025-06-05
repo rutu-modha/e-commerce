@@ -4,10 +4,10 @@ const generateToken = (user) => {
     const token = jwt.sign({ 
         name: user.name, 
         role: user.role,
-        id: user._id 
-    }, 
-    process.env.JWT_SECRET
-)
+        email: user.email,
+        id: user._id
+    }, process.env.JWT_SECRET
+    )
     return token
 }
 const verifyToken = (req, res, next) => {
