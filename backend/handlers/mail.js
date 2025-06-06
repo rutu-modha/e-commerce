@@ -1,6 +1,6 @@
 const mail = require("nodemailer")
 require("dotenv").config()
-mpdule.exports = sendMail = async (req, res) => {
+module.exports = sendMail = async (req, res) => {
     let transport = mail.createTransport({
         host: "smtp.gmail.com",
         port: 587,

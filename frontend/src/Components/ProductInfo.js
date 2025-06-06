@@ -93,8 +93,14 @@ export default function Detail(){
                     <p><b>Description:</b> {product.description}</p>
                 </div>
                 <br/><br/>
-                <button className="bodyBtn" onClick={async() => await addToCart(product)}>Add to Cart</button>
-                <button className="bodyBtn">Buy Now</button>
+                <button 
+                    className="p-1 w-[150px] rounded-[7px] bg-black text-white" 
+                    onClick={async() => {
+                        await addToCart(product)
+                    }}>
+                    Add to Cart
+                </button>
+                <button className="p-1 w-[150px] rounded-[7px] bg-black text-white">Buy Now</button>
                 <br/><br/>
             </div>
             <div>
@@ -102,7 +108,13 @@ export default function Detail(){
                 <h1>Reviews</h1>
                 <textarea placeholder="Write your comment/s about the product here..." onChange={(e) => setReview(e.target.value)}></textarea>
                 <br/><br/>
-                <button className="bodyBtn" onClick={() => postReview(product.name)}>Comment</button>
+                <button 
+                    className="p-1 w-[150px] rounded-[7px] bg-black text-white" 
+                    onClick={() => {
+                        postReview(product.name)
+                    }}>
+                    Comment
+                </button>
                 <h2>See the reviews from our other customers who bought the same product</h2>
                 {comments.map((review, index) => (
                     <div key={index} className="comments">
@@ -112,9 +124,13 @@ export default function Detail(){
                     </div>
                 ))}
             </div>
-            {alert.length > 0 ? 
-            <Alert heading={alert[0]} message={alert[1]} onClose={() => showAlert("", "")}/> :
-            null}
+            {alert.length > 0 && 
+            <Alert 
+                heading = { alert[0] } 
+                message = { alert[1] } 
+                onClose = { () => {
+                    showAlert("", "")
+                }}/>}
         </div>
     )
 }

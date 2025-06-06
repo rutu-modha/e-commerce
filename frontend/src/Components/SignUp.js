@@ -43,20 +43,40 @@ export default function Register() {
     return (
         <div className="body">
             <h1>Sign Up</h1>
-            <input type="text" value={name} placeholder="Enter your name" onChange={(e) => setName(e.target.value)} />
+            <input
+                type="text"
+                value={name}
+                placeholder="Enter your name"
+                onChange={(e) => setName(e.target.value)}
+                className="mt-2.5 mr-2.5 p-1 border border-black rounded-[20px] w-[260px]" />
             <br /><br />
-            <input type="email" value={email} placeholder="Enter your e-mail" onChange={(e) => setEmail(e.target.value)} />
+            <input
+                type="email"
+                value={email}
+                placeholder="Enter your e-mail" 
+                onChange={(e) => setEmail(e.target.value)} 
+                className="mt-2.5 mr-2.5 p-1 border border-black rounded-[20px] w-[260px]" />
             <br /><br />
-            <input type="password" value={password} placeholder="Enter your password" onChange={(e) => setPassword(e.target.value)} />
+            <input 
+                type="password" 
+                value={password} 
+                placeholder="Enter your password" 
+                onChange={(e) => setPassword(e.target.value)} 
+                className="mt-2.5 mr-2.5 p-1 border border-black rounded-[20px] w-[260px]" />
             <br /><br />
             <p>Select as whom shall we register you:</p>
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
+            <select 
+                value={role} 
+                onChange={(e) => setRole(e.target.value)}
+                className="mt-2.5 mr-2.5 p-1 border border-black rounded-[20px] w-[260px]" >
                 <option></option>
                 <option>Consumer</option>
                 <option>Retailer</option>
             </select>
             <br /><br />
-            <button className="bodyBtn" onClick={verify}>Sign Up</button>
+            <button 
+                onClick={verify}
+                className="p-1 w-[150px] rounded-[7px] bg-black text-white">Sign Up</button>
             {alert.length !== 0 && <Alert heading={alert[0]} message={alert[1]} onClose={() => showAlert("", "")} />}
         </div>
     )

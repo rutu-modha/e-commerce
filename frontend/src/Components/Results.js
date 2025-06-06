@@ -41,12 +41,24 @@ export default function Result() {
                             <p className="description">{product.description}</p>
                         </div>
                         <div className="a2cBtn">
-                            <button className="bodyBtn" onClick={() => { addToCart(product) }}>Add to Cart</button>
-                            <button className="bodyBtn">Buy Now</button>
+                            <button 
+                                className="p-1 w-[150px] rounded-[7px] bg-black text-white" 
+                                onClick={ () => { 
+                                    addToCart(product) 
+                                }} >
+                                    Add to Cart
+                                </button>
+                            <button className="p-1 w-[150px] rounded-[7px] bg-black text-white">Buy Now</button>
                         </div>
                     </div>
                 ))}
-                {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]}  onClose={() => showAlert("", "")}/>}
+                {alert.length > 0 && 
+                    <Alert 
+                        heading={alert[0]} 
+                        message={alert[1]}  
+                        onClose={() => {
+                            showAlert("", "")
+                        }} />}
         </div>
     )
 }

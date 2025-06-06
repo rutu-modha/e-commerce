@@ -36,9 +36,22 @@ export default function Search() {
     }
     return (
         <div className="search">
-            <input type="search" placeholder="Search for products..."  onChange={(e) => { setInput(e.target.value) }} />
-            <button className="bodyBtn" onClick={handleSearch}>Search</button>
-            {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]}  onClose={() => showAlert("", "")}/>}
+            <input 
+                type="search" 
+                placeholder="Search for products..."  
+                onChange={(e) => { setInput(e.target.value) }} className="mt-2.5 mr-2.5 p-1 border border-black rounded-[20px] w-[260px]" />
+            <button 
+                onClick={handleSearch}
+                className="p-1 w-[150px] rounded-[7px] bg-black text-white">
+                    Search
+            </button>
+            {alert.length > 0 
+                && <Alert 
+                    heading = { alert[0] } 
+                    message = { alert[1] }  
+                    onClose = { () => {
+                        showAlert("", "")
+                    }}/>}
         </div>
     )
 }

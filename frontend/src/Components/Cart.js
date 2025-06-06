@@ -64,14 +64,27 @@ export default function Cart() {
                                 <p className="description">Description: {item.cartItem[0].description}</p>
                             </div>
                             <div className="a2cBtn">
-                                <button className="bodyBtn">Buy Now</button>
-                                <button className="bodyBtn" onClick={() => removeItem(item.cartItem[0])}>Remove Item</button>
+                                <button className="mt-2.5 mr-2.5 p-1 border border-black rounded-[20px] w-[260px]">Buy Now</button>
+                                <button 
+                                    className="mt-2.5 mr-2.5 p-1 border border-black rounded-[20px] w-[260px]" 
+                                    onClick={() => {
+                                        removeItem(item.cartItem[0])
+                                    }}>
+                                    Remove Item
+                                    </button>
                             </div>
                         </div>
                     ))}
                 </div>
             </>)}
-            {alert.length > 0 && <Alert heading={alert[0]} message={alert[1]} onClose={() => showAlert("", "")} />}
+            {alert.length > 0 && 
+            <Alert 
+                heading={alert[0]} 
+                message={alert[1]} 
+                onClose={() => {
+                    showAlert("", "")
+                }}
+            />}
         </div>
     )
 }

@@ -1,4 +1,3 @@
-import "./App.css"
 import { Link, Route, Routes } from "react-router"
 import Register from "./Components/SignUp"
 import Authorize from "./Components/Login"
@@ -12,9 +11,9 @@ export default function App(){
     return (
         <div>
             <AlertWrapper />
-            <div className="navbar">
+            <div className="sticky top-0 z-20 h-[60px] p-5 w-full bg-black text-white flex justify-around">
                 <Link to="/">
-                    <button>Home</button>
+                    <button className="">Home</button>
                 </Link>
                 <Link to="/auth">
                     <button>Sign Up</button>
