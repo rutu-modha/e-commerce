@@ -85,12 +85,10 @@ pnpm run start
 This project is licensed under the [MIT License](./LICENSE).
 ## 🙏 Small Appeal
 - If you liked this project, then please don't forget to give this repository a star.
-
 - Your 1 star means a lot for me.
 ## 👨‍💻 Author
 **Hrutav Modha**
 (_modhahrutav@gmail.com_)
 ## 🤝 Contributions
 - Feel free to fork, submit PRs, or open an issue.
-
 - Let's build something cool together!
