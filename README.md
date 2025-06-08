@@ -1,6 +1,6 @@
 # 🛒 E-Commerce Web App
-A full-stack e-commerce platform built with the MERN stack.  
-It supports role-based access control, image uploads, and dynamic product management for retailers and consumers.
+- A full-stack e-commerce platform built with the MERN stack.  
+- It supports role-based access control, image uploads, and dynamic product management for retailers and consumers.
 ## 🔐 User Roles
 - **Retailer**
   - Upload products with images
@@ -84,11 +84,13 @@ pnpm run start
 ## 📄 License
 This project is licensed under the [MIT License](./LICENSE).
 ## 🙏 Small Appeal
-If you liked this project, then please don't forget to give this repository a star. 
-Your 1 star means a lot for me.
+- If you liked this project, then please don't forget to give this repository a star.
+
+- Your 1 star means a lot for me.
 ## 👨‍💻 Author
 **Hrutav Modha**
 (_modhahrutav@gmail.com_)
 ## 🤝 Contributions
-Feel free to fork, submit PRs, or open an issue.
-Let's build something cool together!
+- Feel free to fork, submit PRs, or open an issue.
+
+- Let's build something cool together!
