@@ -20,7 +20,7 @@ It supports role-based access control, image uploads, and dynamic product manage
 | Frontend   | React.js             |
 | Backend    | Node.js, Express.js  |
 | Database   | MongoDB              |
-## Package Manager Support
+## 🌐 Package Manager Support
 This project supports multiple package managers:
 - npm (`package-lock.json`)
 - yarn (`yarn.lock`)
